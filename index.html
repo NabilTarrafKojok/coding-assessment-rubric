@@ -5,68 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Assessment Rubic ©NabilTarrafKojok</title>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-    }
+        /* Base font size for responsiveness */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Set a background color */
+        }
 
-    .rating-app {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2px;
-    }
+        /* Original CSS code continues below... */
 
-    .section {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
+        .rating-app {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2px;
+            box-sizing: border-box;
+        }
 
-    h2 {
-        margin: 0;
-    }
+        .section {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
 
-    .rating-table {
-        width: 100%;
-    }
+        h2 {
+            margin: 0;
+        }
 
-    .rating-buttons {
-        display: flex;
-        flex-wrap: wrap;
-    }
+        .rating-table {
+            width: 100%;
+        }
 
-    .rating-buttons button {
-        flex: 0 0 calc(25% - 10px);
-        margin: 5px;
-        padding: 5px 10px;
-        background-color: #007BFF;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
+        .rating-buttons {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    .rating-buttons button.active {
-        background-color: #FF6B6B; /* Change to complement color */
-    }
+        /* Adjust button styles for responsiveness */
+        .rating-buttons button {
+            flex: 0 0 calc(33.33% - 10px); /* Display three buttons per row on smaller screens */
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em; /* Use relative font size */
+        }
 
-    .total-mark {
-            font-size: 18px;
+        .rating-buttons button.active {
+            background-color: #FF6B6B; /* Change to complement color */
+        }
+
+        .total-mark {
+            font-size: 1.125em; /* Use relative font size */
             font-weight: bold;
-            position: fixed;
+            position: sticky; /* Make the header sticky */
             top: 0;
-            left: 0;
-            right: 0;
             background-color: white;
             padding: 2px 0;
             z-index: 999;
+            margin-top: 60px; /* Create space for the fixed header on smaller screens */
         }
-        
-    button {
-        background-color: #007BFF;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em; /* Use relative font size */
+        }
+
+        /* Add a media query for smaller screens */
+        @media (max-width: 768px) {
+            .rating-buttons button {
+                flex: 0 0 calc(50% - 10px); /* Display two buttons per row on smaller screens */
+            }
+
+            .total-mark {
+                margin-top: 0; /* Remove the margin on smaller screens */
+            }
+        }
     
     .table-container {
             margin-top: 5px; /* Adjust the top margin to make space for the fixed header */
@@ -418,11 +439,7 @@
     // JavaScript code to handle the button click event
     document.getElementById("printButton").addEventListener("click", function() {
         window.print(); // This will trigger the print dialog
-    });
-    
-    
-    
-    
+    });  
     
    // Get references to the buttons and input elements
     const insertButtons = document.querySelectorAll(".insert-button");
@@ -454,10 +471,7 @@
             }
         });
     });
-    
-    
-
- 
+     
         // JavaScript code to make the "Total Mark" section fixed when scrolling
         window.addEventListener("scroll", function() {
             const totalMarkSection = document.getElementById("fixedTotalMark");
@@ -468,11 +482,6 @@
             }
         });
 
-
-
-
-    
-    
 </script>
 
 
